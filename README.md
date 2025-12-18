@@ -86,3 +86,33 @@ Nginx + Python
 ALB + ECS
 
 API Gateway + Lambda
+
+===========================================================
+default.conf file
+
+
+🔄 Full Request Flow (REAL LIFE)
+User opens:
+http://your-ip/
+
+Step-by-step:
+
+Browser → Nginx (port 80)
+
+Nginx checks /
+
+No static file → routes to /index.php
+
+Nginx forwards request via FastCGI
+
+PHP-FPM executes index.php
+
+PHP sends output back
+
+Nginx returns response to browser
+
+🧠 One-line summary (remember this forever)
+
+Nginx decides WHERE the request goes.
+PHP-FPM decides WHAT logic runs.
+================================================================
