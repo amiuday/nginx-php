@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  php:
+    build: ./php
+    container_name: php
+    volumes:
+      - ./src:/var/www/html
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - php
+
